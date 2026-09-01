@@ -1,0 +1,236 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Canada FSW Point Calculator</title>
+  <script src="https://cdn.tailwindcss.com"></script>
+</head>
+<body class="bg-gray-50 text-gray-800 font-sans min-h-screen pb-12">
+
+  <header class="bg-red-700 text-white py-6 shadow-md mb-8">
+    <div class="max-w-4xl mx-auto px-4 text-center">
+      <h1 class="text-3xl font-bold">Canada FSW Points Calculator</h1>
+      <p class="text-red-100 text-sm mt-1">Federal Skilled Worker Program Self-Assessment Grid (Max: 100 Points)</p>
+    </div>
+  </header>
+
+  <main class="max-w-4xl mx-auto px-4 grid grid-cols-1 md:grid-cols-3 gap-8">
+    
+    <div class="md:col-span-2 space-y-6">
+      
+      <section class="bg-white p-5 rounded-lg shadow-sm border border-gray-200">
+        <h2 class="text-lg font-semibold text-gray-900 mb-3">1. Age (Max 12 Points)</h2>
+        <label for="age" class="block text-sm font-medium text-gray-700 mb-1">Select your age at application:</label>
+        <input type="number" id="age" min="15" max="65" value="28" class="w-full border-gray-300 rounded-md border p-2 focus:ring-2 focus:ring-red-500 focus:outline-none">
+      </section>
+
+      <section class="bg-white p-5 rounded-lg shadow-sm border border-gray-200">
+        <h2 class="text-lg font-semibold text-gray-900 mb-3">2. Education (Max 25 Points)</h2>
+        <label for="education" class="block text-sm font-medium text-gray-700 mb-1">Highest level of education (ECA required for non-Canadian):</label>
+        <select id="education" class="w-full border-gray-300 rounded-md border p-2 focus:ring-2 focus:ring-red-500 focus:outline-none">
+          <option value="25">Doctoral level (Ph.D.) - 25 pts</option>
+          <option value="23" selected>Master's or Professional degree (MD, Law, etc.) - 23 pts</option>
+          <option value="22">Two or more post-secondary credentials (one 3+ yrs) - 22 pts</option>
+          <option value="21">3+ year post-secondary degree/diploma - 21 pts</option>
+          <option value="19">2-year post-secondary degree/diploma - 19 pts</option>
+          <option value="15">1-year post-secondary degree/diploma - 15 pts</option>
+          <option value="5">Secondary school diploma (High School) - 5 pts</option>
+          <option value="0">Less than Secondary school - 0 pts</option>
+        </select>
+      </section>
+
+      <section class="bg-white p-5 rounded-lg shadow-sm border border-gray-200">
+        <h2 class="text-lg font-semibold text-gray-900 mb-3">3. Work Experience (Max 15 Points)</h2>
+        <label for="experience" class="block text-sm font-medium text-gray-700 mb-1">Continuous skilled work experience (NOC TEER 0, 1, 2, 3):</label>
+        <select id="experience" class="w-full border-gray-300 rounded-md border p-2 focus:ring-2 focus:ring-red-500 focus:outline-none">
+          <option value="15" selected>6 or more years - 15 pts</option>
+          <option value="13">4 to 5 years - 13 pts</option>
+          <option value="11">2 to 3 years - 11 pts</option>
+          <option value="9">1 year - 9 pts</option>
+          <option value="0">Less than 1 year - 0 pts</option>
+        </select>
+      </section>
+
+      <section class="bg-white p-5 rounded-lg shadow-sm border border-gray-200">
+        <h2 class="text-lg font-semibold text-gray-900 mb-3">4. Official Languages (Max 28 Points)</h2>
+        
+        <p class="text-sm font-medium text-gray-700 mb-2">First Official Language (CLB per skill):</p>
+        <div class="grid grid-cols-2 gap-3 mb-4">
+          <div>
+            <label class="block text-xs text-gray-500">Speaking</label>
+            <select id="lang-speak" class="lang-skill w-full border-gray-300 rounded-md border p-2">
+              <option value="6" selected>CLB 9+ (6 pts)</option>
+              <option value="5">CLB 8 (5 pts)</option>
+              <option value="4">CLB 7 (4 pts)</option>
+              <option value="0">Below CLB 7 (0 pts)</option>
+            </select>
+          </div>
+          <div>
+            <label class="block text-xs text-gray-500">Listening</label>
+            <select id="lang-listen" class="lang-skill w-full border-gray-300 rounded-md border p-2">
+              <option value="6" selected>CLB 9+ (6 pts)</option>
+              <option value="5">CLB 8 (5 pts)</option>
+              <option value="4">CLB 7 (4 pts)</option>
+              <option value="0">Below CLB 7 (0 pts)</option>
+            </select>
+          </div>
+          <div>
+            <label class="block text-xs text-gray-500">Reading</label>
+            <select id="lang-read" class="lang-skill w-full border-gray-300 rounded-md border p-2">
+              <option value="6" selected>CLB 9+ (6 pts)</option>
+              <option value="5">CLB 8 (5 pts)</option>
+              <option value="4">CLB 7 (4 pts)</option>
+              <option value="0">Below CLB 7 (0 pts)</option>
+            </select>
+          </div>
+          <div>
+            <label class="block text-xs text-gray-500">Writing</label>
+            <select id="lang-write" class="lang-skill w-full border-gray-300 rounded-md border p-2">
+              <option value="6" selected>CLB 9+ (6 pts)</option>
+              <option value="5">CLB 8 (5 pts)</option>
+              <option value="4">CLB 7 (4 pts)</option>
+              <option value="0">Below CLB 7 (0 pts)</option>
+            </select>
+          </div>
+        </div>
+
+        <div class="pt-2 border-t border-gray-100">
+          <label class="flex items-center space-x-2 text-sm text-gray-700">
+            <input type="checkbox" id="second-lang" class="rounded text-red-600 focus:ring-red-500 h-4 w-4">
+            <span>Second Official Language (Min. CLB 5 in all 4 skills) - <strong>4 pts</strong></span>
+          </label>
+        </div>
+      </section>
+
+      <section class="bg-white p-5 rounded-lg shadow-sm border border-gray-200">
+        <h2 class="text-lg font-semibold text-gray-900 mb-3">5. Adaptability (Max 10 Points Combined)</h2>
+        <div class="space-y-2 text-sm text-gray-700">
+          <label class="flex items-center space-x-2">
+            <input type="checkbox" value="10" class="adaptability-check rounded text-red-600 focus:ring-red-500 h-4 w-4">
+            <span>Arranged employment in Canada (Valid job offer) - 10 pts</span>
+          </label>
+          <label class="flex items-center space-x-2">
+            <input type="checkbox" value="5" class="adaptability-check rounded text-red-600 focus:ring-red-500 h-4 w-4">
+            <span>Relative in Canada (18+, PR/Citizen) - 5 pts</span>
+          </label>
+          <label class="flex items-center space-x-2">
+            <input type="checkbox" value="10" class="adaptability-check rounded text-red-600 focus:ring-red-500 h-4 w-4">
+            <span>Past Canadian work experience (Applicant, 1+ yrs) - 10 pts</span>
+          </label>
+          <label class="flex items-center space-x-2">
+            <input type="checkbox" value="5" class="adaptability-check rounded text-red-600 focus:ring-red-500 h-4 w-4">
+            <span>Past Canadian study (Applicant or Spouse, 2+ yrs) - 5 pts</span>
+          </label>
+          <label class="flex items-center space-x-2">
+            <input type="checkbox" value="5" class="adaptability-check rounded text-red-600 focus:ring-red-500 h-4 w-4">
+            <span>Spouse's language skills (CLB 4+ in all skills) - 5 pts</span>
+          </label>
+        </div>
+      </section>
+
+    </div>
+
+    <div class="md:col-span-1">
+      <div class="sticky top-6 bg-white p-6 rounded-lg shadow-md border border-gray-200 text-center">
+        <h3 class="text-xs uppercase tracking-wider font-semibold text-gray-500 mb-1">Total Score</h3>
+        <div id="total-score" class="text-5xl font-extrabold text-gray-900 my-2">0</div>
+        <p class="text-xs text-gray-500 mb-4">Out of 100 maximum points</p>
+
+        <div id="status-badge" class="py-2 px-4 rounded-full font-bold text-sm mb-6 bg-red-100 text-red-700">
+          Not Eligible (&lt; 67 Points)
+        </div>
+
+        <div class="text-left text-xs space-y-2 border-t border-gray-100 pt-4 text-gray-600">
+          <div class="flex justify-between"><span>Age:</span> <strong id="score-age">0</strong></div>
+          <div class="flex justify-between"><span>Education:</span> <strong id="score-edu">0</strong></div>
+          <div class="flex justify-between"><span>Experience:</span> <strong id="score-exp">0</strong></div>
+          <div class="flex justify-between"><span>Language:</span> <strong id="score-lang">0</strong></div>
+          <div class="flex justify-between"><span>Adaptability:</span> <strong id="score-adapt">0</strong></div>
+        </div>
+      </div>
+    </div>
+
+  </main>
+
+  <script>
+    function getAgePoints(age) {
+      if (age >= 18 && age <= 35) return 12;
+      if (age === 36) return 11;
+      if (age === 37) return 10;
+      if (age === 38) return 9;
+      if (age === 39) return 8;
+      if (age === 40) return 7;
+      if (age === 41) return 6;
+      if (age === 42) return 5;
+      if (age === 43) return 4;
+      if (age === 44) return 3;
+      if (age === 45) return 2;
+      if (age === 46) return 1;
+      return 0;
+    }
+
+    function calculate() {
+      // Age
+      const ageVal = parseInt(document.getElementById('age').value) || 0;
+      const agePts = getAgePoints(ageVal);
+
+      // Education
+      const eduPts = parseInt(document.getElementById('education').value);
+
+      // Experience
+      const expPts = parseInt(document.getElementById('experience').value);
+
+      // Language
+      let langPts = 0;
+      const langSkills = document.querySelectorAll('.lang-skill');
+      langSkills.forEach(select => {
+        langPts += parseInt(select.value);
+      });
+      if (document.getElementById('second-lang').checked) {
+        langPts += 4;
+      }
+      langPts = Math.min(langPts, 28); // Cap at 28
+
+      // Adaptability
+      let adaptPts = 0;
+      const adaptChecks = document.querySelectorAll('.adaptability-check');
+      adaptChecks.forEach(check => {
+        if (check.checked) {
+          adaptPts += parseInt(check.value);
+        }
+      });
+      adaptPts = Math.min(adaptPts, 10); // Cap at 10
+
+      // Total
+      const total = agePts + eduPts + expPts + langPts + adaptPts;
+
+      // Update UI
+      document.getElementById('score-age').textContent = agePts;
+      document.getElementById('score-edu').textContent = eduPts;
+      document.getElementById('score-exp').textContent = expPts;
+      document.getElementById('score-lang').textContent = langPts;
+      document.getElementById('score-adapt').textContent = adaptPts;
+      document.getElementById('total-score').textContent = total;
+
+      const badge = document.getElementById('status-badge');
+      if (total >= 67) {
+        badge.textContent = 'Eligible (≥ 67 Points)';
+        badge.className = 'py-2 px-4 rounded-full font-bold text-sm mb-6 bg-green-100 text-green-700';
+      } else {
+        badge.textContent = 'Not Eligible (< 67 Points)';
+        badge.className = 'py-2 px-4 rounded-full font-bold text-sm mb-6 bg-red-100 text-red-700';
+      }
+    }
+
+    // Attach Event Listeners
+    document.querySelectorAll('input, select').forEach(element => {
+      element.addEventListener('input', calculate);
+      element.addEventListener('change', calculate);
+    });
+
+    // Initial Calculation
+    calculate();
+  </script>
+</body>
+</html>
